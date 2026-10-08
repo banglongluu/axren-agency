@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AXREN® — Execution Intelligence</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Newsreader:opsz,wght@6..72,300&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="mark" href="../">AXREN®</a>
+  <span class="num" id="count" aria-live="polite"></span>
+</header>
+
+<main class="page">
+  <section class="intro" id="intro" hidden>
+    <h1 class="statement" id="title" data-ph="⟦BẰNG WRITES: statement⟧"></h1>
+    <p class="read" id="lede" data-ph="⟦BẰNG WRITES: one line under it⟧"></p>
+  </section>
+
+  <nav class="filters" id="filters" aria-label="Filter by tag"></nav>
+  <div class="grid" id="grid" aria-busy="true"></div>
+</main>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Piece" hidden>
+  <button class="v-back" id="vBack" type="button" tabindex="-1" aria-hidden="true"></button>
+  <div class="v-stage" id="vStage"></div>
+  <div class="v-bar">
+    <div class="v-cap"><b class="chip-t" id="vTitle"></b><span class="read dim" id="vSub"></span></div>
+    <div class="v-nav">
+      <span class="num" id="vCount"></span>
+      <button class="pill" id="vPrev" type="button" aria-label="Previous">Prev</button>
+      <button class="pill" id="vNext" type="button" aria-label="Next">Next</button>
+      <button class="pill" id="vClose" type="button">Close</button>
+    </div>
+  </div>
+  <form class="v-edit" id="vEdit" hidden></form>
+</div>
+
+<dialog class="login" id="login">
+  <form method="dialog" id="loginForm">
+    <p class="chip-t">Owner sign-in</p>
+    <label>Email<input name="email" type="email" autocomplete="username" required></label>
+    <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+    <p class="num dim" id="loginMsg" role="status"></p>
+    <div class="row">
+      <button class="pill" value="cancel" formnovalidate type="submit">Cancel</button>
+      <button class="pill solid" value="ok" type="submit">Sign in</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="editbar" id="editBar" hidden>
+  <span class="num" id="ebState">⌘V pastes · drop files · drag to reorder</span>
+  <div class="row">
+    <button class="pill" id="ebAdd" type="button">Add media</button>
+    <button class="pill" id="ebDiscard" type="button">Discard</button>
+    <button class="pill" id="ebOut" type="button">Sign out</button>
+    <button class="pill solid" id="ebSave" type="button">Save</button>
+  </div>
+</div>
+<div class="veil" id="dropVeil" aria-hidden="true"><span class="chip-t">Drop to add</span></div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
